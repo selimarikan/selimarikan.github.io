@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>Second PostCode Electro Tech</title>
+
+  <link rel="stylesheet" href="www.arikan.dev/theme/css/main.css">
+  <link rel="stylesheet" href="www.arikan.dev/theme/css/pygment_trac.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div><img src="" class="grv-img" /></div>
+      <div class="title"><a href="www.arikan.dev/">Code Electro Tech </a></div>
+      <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="www.arikan.dev/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://github.com/selimarikan">GitHub</a></li>
+    <li><a href="https://twitter.com/s5ma6n">Twitter</a></li>
+</ul>
+</div>
+
+    </header>
+    <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        Second Post
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2022-09-19T21:08:00+02:00">
+  Pzt 19 Eylül 2022
+</abbr> | 
+ -- (<a href="www.arikan.dev/second-post.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>I have a narrow long image that I want to display at the top right of a README.md file on GitHub. I have been trying several things to get it aligned right and currently have</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;p</span> <span class="na">align=</span><span class="s">&quot;right&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;doc/subpagelist.png&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</code></pre></div>
+
+<p>This works in that the image is aligned on the right side, though is rather useless as all content that is below in image in the Markdown file gets displayed under the bottom of the image, rather then to the left of it.</p>
+<p>Is there a way to have the text flow around the image (without getting rid of headers and paragraphs)?</p>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+    </section>
+    <footer>
+      <p><small>&copy; Code Electro Tech &mdash; Theme forked from <a href="https://github.com/orderedlist">Sundown</a> by
+          selimarikan </a></small></p>
+    </footer>
+  </div>
+  <!-- Scale fix -->
+  <script>
+    var metas = document.getElementsByTagName('meta');
+    var i;
+
+    if (navigator.userAgent.match(/iPhone/i)) {
+      for (i = 0; i < metas.length; i++) {
+        if (metas[i].name == "viewport") {
+          metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+        }
+      }
+
+      document.addEventListener("gesturestart", gestureStart, false);
+    }
+
+    function gestureStart() {
+      for (i = 0; i < metas.length; i++) {
+        if (metas[i].name == "viewport") {
+          metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

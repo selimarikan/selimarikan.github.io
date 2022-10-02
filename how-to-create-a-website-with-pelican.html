@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>How to create a website with PelicanCode Electro Tech</title>
+
+  <link rel="stylesheet" href="https://selimarikan.github.io/theme/css/main.css">
+  <link rel="stylesheet" href="https://selimarikan.github.io/theme/css/pygment_trac.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div><img src="" class="grv-img" /></div>
+      <div class="title"><a href="https://selimarikan.github.io/">Code Electro Tech </a></div>
+      <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="https://selimarikan.github.io/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://github.com/selimarikan">GitHub</a></li>
+    <li><a href="https://twitter.com/s5ma6n">Twitter</a></li>
+</ul>
+</div>
+
+    </header>
+    <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        How to create a website with Pelican
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2022-09-23T20:02:00+02:00">
+  Fri 23 September 2022
+</abbr> | 
+ -- (<a href="https://selimarikan.github.io/how-to-create-a-website-with-pelican.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>For a long time I was postponing to create a static website to note my personal projects and interesting stuff.
+Finally, I compared the different static website generators and I decided to use <a href="https://getpelican.com/">Pelican</a>.</p>
+<p>I was looking for a simple thing: Markdown syntax, no <code>npm</code>, <code>go</code>, etc. dependencies, <code>Python</code> would be OK. In short, I was looking for a hassle-free experience.</p>
+<p>When you search for "Static Site Generators" top choices for people are usually:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Language</th>
+<th>Templates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://jekyllrb.com/">Jekyll</a></td>
+<td>Ruby</td>
+<td>Liquid</td>
+</tr>
+<tr>
+<td><a href="https://gohugo.io/">Hugo</a></td>
+<td>Go</td>
+<td>Go</td>
+</tr>
+<tr>
+<td><a href="https://getpelican.com/">Pelican</a></td>
+<td>Python</td>
+<td>Jinja2</td>
+</tr>
+<tr>
+<td><a href="https://www.gatsbyjs.com/">Gatsby</a></td>
+<td>JavaScript</td>
+<td>React</td>
+</tr>
+<tr>
+<td><a href="https://nextjs.org/">Next.js</a></td>
+<td>JavaScript</td>
+<td>React</td>
+</tr>
+</tbody>
+</table>
+<p>I also use <code>Jinja</code> with <code>flask</code> so, it was an easy choice to pick <code>Pelican</code> and try it out.</p>
+<h1>Setup</h1>
+<p>Pretty easy, just install the library first:</p>
+<div class="highlight"><pre><span></span><code>pip install <span class="s2">&quot;pelican[markdown]&quot;</span>
+</code></pre></div>
+
+<p>Then, create a new project and provide some basic info:</p>
+<div class="highlight"><pre><span></span><code>pelican-quickstart
+</code></pre></div>
+
+<p>such as the project name, author, etc.</p>
+<p>If you want to publish via <code>GitHub Pages</code>, say <code>no</code> to all previous options until the <code>GitHub Pages</code> comes up:</p>
+<div class="highlight"><pre><span></span><code>&gt; Do you want to upload your website using FTP? <span class="o">(</span>y/N<span class="o">)</span> N
+&gt; Do you want to upload your website using SSH? <span class="o">(</span>y/N<span class="o">)</span> N
+&gt; Do you want to upload your website using Dropbox? <span class="o">(</span>y/N<span class="o">)</span> N
+&gt; Do you want to upload your website using S3? <span class="o">(</span>y/N<span class="o">)</span> N
+&gt; Do you want to upload your website using Rackspace Cloud Files? <span class="o">(</span>y/N<span class="o">)</span> N
+&gt; Do you want to upload your website using GitHub Pages? <span class="o">(</span>y/N<span class="o">)</span> y
+&gt; Is this your personal page <span class="o">(</span>username.github.io<span class="o">)</span>? <span class="o">(</span>y/N<span class="o">)</span> y
+</code></pre></div>
+
+<p>At this point, you will have a skeleton project with the following structure:</p>
+<div class="highlight"><pre><span></span><code>.
+├── content
+│   └── 
+├── output
+│   └── 
+├── pelicanconf.py
+└── publishconf.py
+</code></pre></div>
+
+<h2>Create a Post</h2>
+<p><code>Pelican</code> will automatically pick up any <code>.md</code> files under <code>./content</code> (also directories) and will generate a static HTML file for each one of them. It is worthwhile to mention that <code>.rst</code> files are also supported.</p>
+<p>You can also put any static image files under <code>./content/images</code> and they will be copied to the <code>./output/images</code> folder automatically when you run <code>pelican content</code>.</p>
+<h2>Generate Static Pages</h2>
+<p>To generate the static pages, just run:</p>
+<div class="highlight"><pre><span></span><code>pelican content
+</code></pre></div>
+
+<h2>Run</h2>
+<p>To run the project locally with automatic reloads whenever you make a change in your content so you can see the changes in real-time:</p>
+<div class="highlight"><pre><span></span><code>pelican --autoreload --listen
+</code></pre></div>
+
+<h2>Deploy</h2>
+<p>To deploy the project to <code>GitHub Pages</code>:</p>
+<div class="highlight"><pre><span></span><code>pelican content -o output/username.github.io -s .<span class="se">\p</span>elicanconf.py
+
+<span class="nb">cd</span> .<span class="se">\o</span>utput<span class="se">\u</span>sername.github.io<span class="se">\</span>
+git add .
+git commit -m <span class="s2">&quot;New publish&quot;</span>
+git push origin master
+</code></pre></div>
+
+<h2>Themes</h2>
+<p><code>Pelican</code> has a lot of themes available, but the catch is they are not in the package, you have to pull another <code>pelican-themes</code> <a href="https://github.com/getpelican/pelican-themes">repository</a> and use the one you want.</p>
+<p>I recommend checking the live demos of the themes to see which one you like the most from here: <a href="http://www.pelicanthemes.com/">http://www.pelicanthemes.com/</a></p>
+<p>Then provide the directory of your theme in the <code>pelicanconf.py</code> file:</p>
+<div class="highlight"><pre><span></span><code><span class="n">THEME</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;.\pelican-themes\pelican-bootstrap3&#39;</span>
+</code></pre></div>
+
+<h1>Conclusion</h1>
+<p>That's all, after you complete the initial setup &amp; boilerplate, you can create a <code>.md</code> post and generate &amp; deploy in one script call (above in <code>Deploy</code> section).</p>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+    </section>
+    <footer>
+      <p><small>&copy; Code Electro Tech &mdash; Theme forked from <a href="https://github.com/orderedlist">Sundown</a> by
+          selimarikan </a></small></p>
+    </footer>
+  </div>
+  <!-- Scale fix -->
+  <script>
+    var metas = document.getElementsByTagName('meta');
+    var i;
+
+    if (navigator.userAgent.match(/iPhone/i)) {
+      for (i = 0; i < metas.length; i++) {
+        if (metas[i].name == "viewport") {
+          metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+        }
+      }
+
+      document.addEventListener("gesturestart", gestureStart, false);
+    }
+
+    function gestureStart() {
+      for (i = 0; i < metas.length; i++) {
+        if (metas[i].name == "viewport") {
+          metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
